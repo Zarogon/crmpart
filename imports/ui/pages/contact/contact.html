@@ -1,0 +1,60 @@
+<template name="contactDetails">
+    <!-- Page heading -->
+    {{> pageHeading title=contactName add_opt=true category='' parent="contacts" showTitle=true showAvatar=true showBackArrow=true}}
+    <div class="wrapper wrapper-content">
+        <div class="row white-box">
+            <div class="col-lg-12">
+                {{#if contact}}
+
+                    <div class="tabs-container">
+
+                        <ul class="tab-lined">
+                            <li class=""><a data-toggle="tab" href="#test"><i
+                                    class="fa {{icon}}"></i>Test</a></li>
+                        </ul>
+
+                        <div class="panel-body tab-content no-border">
+                           
+                            <div id="test" class="tab-pane chatWrapper">
+                                <div class="chat">
+                                    <div class="chatContent">
+
+                                        {{#each chatEmail}}
+
+                                            <div class="chatItemContainer {{#if equals maildata.path 'INBOX'}}chatIn{{else}}chatOut{{/if}}">
+                                                <div class="chatItem">
+                                                    {{maildata.text}}
+                                                </div>
+                                                <span class="chat-time">{{maildata.date}}</span>
+                                            </div>
+
+                                        {{/each}}
+
+                                    </div>
+                                </div>
+
+                                <div class="chatAddons"></div>
+
+
+                                <div class="chatInput">
+                                    <textarea class='autoExpand' rows='2' data-min-rows='2' placeholder='Write a message...'></textarea>
+                                    <div class="chat-send-params">
+                                        <span class="text-placeholder">From:</span>
+                                        <select class="link chat-send-from">
+                                            {{#each availableMailboxes}}
+                                                <option value="{{_id}}">{{address}}</option>
+                                            {{/each}}
+                                        </select>
+                                        <a href="" data-action="send-chat-message" class="btn btn-link chat-send pull-right">SEND</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</template>
