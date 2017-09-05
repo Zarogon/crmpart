@@ -4,7 +4,6 @@ import {Meteor} from 'meteor/meteor';
 import {Template} from 'meteor/templating';
 import {$} from 'meteor/jquery';
 import {Contacts} from '../../../api/contacts/contacts.js';
-import {CMethods} from '../../../startup/client/methods';
 import {Mailboxes} from '../../../api/settings/mailboxes.js';
 import {Emails} from '../../../api/mail/emails';
 import './contact.html';
